@@ -175,7 +175,12 @@ export const useAppStore = create<AppStore>()(
           // 'relevance' is already handled by Fuse.js
         }
 
-        set({ filteredPrompts: filtered });
+        // Always put favorites first, regardless of sort order
+        const { favorites } = get();
+        const favoritePrompts = filtered.filter(prompt => favorites.includes(prompt.id));
+        const nonFavoritePrompts = filtered.filter(prompt => !favorites.includes(prompt.id));
+        
+        set({ filteredPrompts: [...favoritePrompts, ...nonFavoritePrompts] });
       },
 
       setSidebarOpen: (open: boolean) => set({ sidebarOpen: open }),

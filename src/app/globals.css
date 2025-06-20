@@ -167,3 +167,24 @@ input[type="radio"] {
 .text-transparent {
   color: transparent;
 }
+
+/* Custom logo sizes */
+.w-\[46px\] {
+  width: auto !important;
+}
+
+.w-32 {
+  width: auto !important;
+}
+
+@media (width >= 64rem) {
+  .lg\:w-40 {
+    width: 60% !important;
+  }
+}
+
+@media (width >= 64rem) {
+  .lg\:w-14 {
+    width: auto !important;
+  }
+}

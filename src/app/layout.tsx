@@ -9,6 +9,11 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Prompt-Kirjasto Pro",
   description: "Premium prompt-kirjastosi ChatGPT:lle ja muille tekoälyille",
+  icons: {
+    icon: "/Favicon.png",
+    shortcut: "/Favicon.png",
+    apple: "/Favicon.png",
+  },
 };
 
 export default function RootLayout({

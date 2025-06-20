@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { Sparkles, BookOpen, Zap, Target, Shield, Star, ArrowRight } from 'lucide-react';
 import AuthModal from './AuthModal';
+import Image from 'next/image';
 
 interface WelcomePageProps {
   darkMode: boolean;
@@ -17,23 +18,14 @@ export default function WelcomePage({ darkMode, onAuthSuccess }: WelcomePageProp
       darkMode ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'
     }`}>
       {/* Logo */}
-      <div className="flex items-center justify-center mb-6">
-        <Sparkles className={`h-16 w-16 ${darkMode ? 'text-blue-400' : 'text-blue-600'}`} />
-      </div>
-      
-      {/* Title */}
-      <h1 className={`text-5xl lg:text-6xl font-bold mb-4 ${
-        darkMode ? 'text-white' : 'text-gray-900'
-      }`}>
-        <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-          Prompt-Kirjasto
-        </span>
-      </h1>
-      
-      <div className={`text-3xl font-semibold mb-8 ${
-        darkMode ? 'text-blue-400' : 'text-blue-600'
-      }`}>
-        Pro
+      <div className="flex items-center justify-center mb-8">
+        <Image
+          src="/logo.png"
+          alt="Prompt-Kirjasto Pro Logo"
+          width={400}
+          height={400}
+          className="h-32 w-32 lg:h-40 lg:w-40 object-contain"
+        />
       </div>
       
       {/* Main Description */}
@@ -57,7 +49,6 @@ export default function WelcomePage({ darkMode, onAuthSuccess }: WelcomePageProp
           ? 'bg-blue-900/30 text-blue-400 border border-blue-700' 
           : 'bg-blue-100 text-blue-600 border border-blue-200'
       }`}>
-        <Shield className="h-4 w-4" />
         <span>🌟 Eksklusiivinen pääsy kurssin opiskelijoille</span>
       </div>
       
@@ -73,7 +64,7 @@ export default function WelcomePage({ darkMode, onAuthSuccess }: WelcomePageProp
       <p className={`text-sm ${
         darkMode ? 'text-gray-500' : 'text-gray-400'
       }`}>
-        ⭐ Kirjaudu sisään kurssin koodilla
+        🔐 Kirjaudu sisään kurssin koodilla
       </p>
 
       {/* Features Section */}

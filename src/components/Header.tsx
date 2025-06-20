@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Search, Menu, Sun, Moon, LogOut, Star, Sparkles, User } from 'lucide-react';
+import { Search, Menu, Sun, Moon, LogOut, Star, User } from 'lucide-react';
 import { useAppStore } from '@/store/useAppStore';
 import { useAuth } from '@/hooks/useAuth';
 import { signOut } from '@/lib/auth';
@@ -9,6 +9,7 @@ import toast from 'react-hot-toast';
 import FavoritesModal from './FavoritesModal';
 import PromptModal from './PromptModal';
 import { Prompt, VibePrompt } from '@/types';
+import Image from 'next/image';
 
 export default function Header() {
   const { 
@@ -78,31 +79,14 @@ export default function Header() {
             </button>
 
             {/* Logo */}
-            <div className="flex items-center space-x-2">
-              <div className="relative">
-                <Sparkles className={`h-6 w-6 lg:h-8 lg:w-8 ${
-                  darkMode ? 'text-blue-400' : 'text-blue-600'
-                }`} />
-              </div>
-              <div className="hidden sm:block">
-                <h1 className={`text-xl font-bold ${
-                  darkMode ? 'text-white' : 'text-gray-900'
-                }`}>
-                  Prompt-Kirjasto
-                </h1>
-                <span className={`text-xs font-medium ${
-                  darkMode ? 'text-blue-400' : 'text-blue-600'
-                }`}>
-                  Pro
-                </span>
-              </div>
-              <div className="sm:hidden">
-                <h1 className={`text-lg font-bold ${
-                  darkMode ? 'text-white' : 'text-gray-900'
-                }`}>
-                  PK Pro
-                </h1>
-              </div>
+            <div className="flex items-center">
+              <Image
+                src="/logo.png"
+                alt="Prompt-Kirjasto Pro Logo"
+                width={200}
+                height={200}
+                className="h-[46px] w-[46px] lg:h-14 lg:w-14 object-contain"
+              />
             </div>
           </div>
 
