@@ -106,6 +106,10 @@ export default function FilterSidebar() {
         style={{
           backgroundColor: 'rgba(0, 0, 0, 0.6)',
           backdropFilter: sidebarOpen ? 'blur(4px)' : 'blur(0px)',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
         }}
         onClick={() => setSidebarOpen(false)}
       />
@@ -116,6 +120,7 @@ export default function FilterSidebar() {
         ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}
         w-80 h-screen lg:h-full overflow-hidden border-r z-50 
         transition-all duration-300 ease-out flex flex-col
+        top-0 left-0
         ${darkMode 
           ? 'bg-gray-900/95 border-gray-700 backdrop-blur-xl' 
           : 'bg-white/95 border-gray-200 backdrop-blur-xl'
