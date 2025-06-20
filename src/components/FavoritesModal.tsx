@@ -37,7 +37,7 @@ export default function FavoritesModal({ isOpen, onClose, darkMode, onPromptSele
     toast.success(`${promptTitle} poistettu suosikeista`);
   };
 
-  const handleCopyPrompt = async (prompt: any) => {
+  const handleCopyPrompt = async (prompt: (Prompt | VibePrompt) & { type: 'prompt' | 'vibe' }) => {
     try {
       await navigator.clipboard.writeText(prompt.prompt);
       toast.success('Prompt kopioitu leikepöydälle!');
