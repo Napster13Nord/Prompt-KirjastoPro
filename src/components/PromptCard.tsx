@@ -60,24 +60,34 @@ export default function PromptCard({ prompt, index }: PromptCardProps) {
       : 'bg-slate-100 text-slate-700 border border-slate-200';
     
     switch (category) {
-      case 'Development': 
+      case 'Kehitys': 
         return darkMode ? 'bg-blue-900 text-blue-200 border border-blue-800' : 'bg-blue-100 text-blue-800 border border-blue-200';
-      case 'Writing': 
+      case 'Kirjoittaminen': 
         return darkMode ? 'bg-purple-900 text-purple-200 border border-purple-800' : 'bg-purple-100 text-purple-800 border border-purple-200';
-      case 'Business': 
+      case 'Liiketoiminta': 
         return darkMode ? 'bg-green-900 text-green-200 border border-green-800' : 'bg-green-100 text-green-800 border border-green-200';
-      case 'Education': 
+      case 'Koulutus': 
         return darkMode ? 'bg-amber-900 text-amber-200 border border-amber-800' : 'bg-amber-100 text-amber-800 border border-amber-200';
-      case 'Creative': 
+      case 'Luova': 
         return darkMode ? 'bg-pink-900 text-pink-200 border border-pink-800' : 'bg-pink-100 text-pink-800 border border-pink-200';
-      case 'Health': 
+      case 'Terveys': 
         return darkMode ? 'bg-red-900 text-red-200 border border-red-800' : 'bg-red-100 text-red-800 border border-red-200';
-      case 'Entertainment': 
+      case 'Viihde': 
         return darkMode ? 'bg-indigo-900 text-indigo-200 border border-indigo-800' : 'bg-indigo-100 text-indigo-800 border border-indigo-200';
-      case 'Tools': 
+      case 'Työkalut': 
         return darkMode ? 'bg-gray-700 text-gray-200 border border-gray-600' : 'bg-gray-100 text-gray-700 border border-gray-200';
-      case 'Games': 
+      case 'Pelit': 
         return darkMode ? 'bg-orange-900 text-orange-200 border border-orange-800' : 'bg-orange-100 text-orange-800 border border-orange-200';
+      case 'Analytiikka':
+        return darkMode ? 'bg-cyan-900 text-cyan-200 border border-cyan-800' : 'bg-cyan-100 text-cyan-800 border border-cyan-200';
+      case 'Web-sovellukset':
+        return darkMode ? 'bg-emerald-900 text-emerald-200 border border-emerald-800' : 'bg-emerald-100 text-emerald-800 border border-emerald-200';
+      case 'Kommunikointia':
+        return darkMode ? 'bg-violet-900 text-violet-200 border border-violet-800' : 'bg-violet-100 text-violet-800 border border-violet-200';
+      case 'Verkkokauppa':
+        return darkMode ? 'bg-teal-900 text-teal-200 border border-teal-800' : 'bg-teal-100 text-teal-800 border border-teal-200';
+      case 'Yleinen':
+        return darkMode ? 'bg-slate-700 text-slate-200 border border-slate-600' : 'bg-slate-100 text-slate-700 border border-slate-200';
       default: 
         return baseStyle;
     }

@@ -109,7 +109,7 @@ export default function Header() {
           </div>
 
           {/* Right Side - User Info + Actions */}
-          <div className="flex items-center space-x-1 sm:space-x-2 lg:space-x-4">
+          <div className="flex items-center space-x-3 sm:space-x-2 lg:space-x-4">
             {/* User Name (Desktop only) */}
             {user && (
               <div className={`hidden md:flex items-center space-x-2 px-3 py-2 rounded-lg ${

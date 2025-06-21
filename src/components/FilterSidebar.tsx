@@ -1,39 +1,30 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Code, Users, Briefcase, Palette, Heart, GraduationCap, Gamepad2, Wrench, X, Star, Sparkles } from 'lucide-react';
+import { Code, Users, Briefcase, Palette, Heart, GraduationCap, Gamepad2, Wrench, X, Star, BarChart3, Globe, MessageCircle, ShoppingCart } from 'lucide-react';
 import { useAppStore } from '@/store/useAppStore';
 import { Prompt, VibePrompt } from '@/types';
 import PromptModal from './PromptModal';
 
 const categories = [
   { id: '', label: 'Kaikki kategoriat', icon: Users, count: 0 },
-  { id: 'Development', label: 'Kehitys', icon: Code, count: 0 },
-  { id: 'Business', label: 'Liiketoiminta', icon: Briefcase, count: 0 },
-  { id: 'Writing', label: 'Kirjoittaminen', icon: Palette, count: 0 },
-  { id: 'Education', label: 'Koulutus', icon: GraduationCap, count: 0 },
-  { id: 'Creative', label: 'Luova', icon: Palette, count: 0 },
-  { id: 'Health', label: 'Terveys', icon: Heart, count: 0 },
-  { id: 'Entertainment', label: 'Viihde', icon: Gamepad2, count: 0 },
-  { id: 'Tools', label: 'Työkalut', icon: Wrench, count: 0 },
-  { id: 'Games', label: 'Pelit', icon: Gamepad2, count: 0 },
+  { id: 'Kehitys', label: 'Kehitys', icon: Code, count: 0 },
+  { id: 'Liiketoiminta', label: 'Liiketoiminta', icon: Briefcase, count: 0 },
+  { id: 'Kirjoittaminen', label: 'Kirjoittaminen', icon: Palette, count: 0 },
+  { id: 'Koulutus', label: 'Koulutus', icon: GraduationCap, count: 0 },
+  { id: 'Luova', label: 'Luova', icon: Palette, count: 0 },
+  { id: 'Terveys', label: 'Terveys', icon: Heart, count: 0 },
+  { id: 'Viihde', label: 'Viihde', icon: Gamepad2, count: 0 },
+  { id: 'Työkalut', label: 'Työkalut', icon: Wrench, count: 0 },
+  { id: 'Pelit', label: 'Pelit', icon: Gamepad2, count: 0 },
+  { id: 'Analytiikka', label: 'Analytiikka', icon: BarChart3, count: 0 },
+  { id: 'Web-sovellukset', label: 'Web-sovellukset', icon: Globe, count: 0 },
+  { id: 'Kommunikointia', label: 'Kommunikointia', icon: MessageCircle, count: 0 },
+  { id: 'Verkkokauppa', label: 'Verkkokauppa', icon: ShoppingCart, count: 0 },
+  { id: 'Yleinen', label: 'Yleinen', icon: Users, count: 0 },
 ];
 
-const platforms = [
-  { id: '', label: 'Kaikki alustat' },
-  { id: 'ChatGPT', label: 'ChatGPT' },
-  { id: 'Claude', label: 'Claude' },
-  { id: 'Gemini', label: 'Gemini' },
-  { id: 'GPT-4', label: 'GPT-4' },
-  { id: 'Universal', label: 'Universaali' },
-];
 
-const sortOptions = [
-  { id: 'relevance', label: 'Relevanssi' },
-  { id: 'name', label: 'Nimi' },
-  { id: 'newest', label: 'Uusin' },
-  { id: 'oldest', label: 'Vanhin' },
-];
 
 export default function FilterSidebar() {
   const { 
@@ -69,14 +60,6 @@ export default function FilterSidebar() {
 
   const handleForDevsChange = (value: boolean | null) => {
     setSearchFilters({ forDevs: value });
-  };
-
-  const handlePlatformChange = (platformId: string) => {
-    setSearchFilters({ platform: platformId });
-  };
-
-  const handleSortChange = (sortBy: string) => {
-    setSearchFilters({ sortBy: sortBy as 'relevance' | 'name' | 'newest' | 'oldest' });
   };
 
   const clearFilters = () => {
@@ -371,82 +354,7 @@ export default function FilterSidebar() {
             </div>
           </div>
 
-          {/* AI Platforms */}
-          <div>
-            <h3 className={`text-sm font-semibold mb-3 flex items-center space-x-2 ${
-              darkMode ? 'text-gray-200' : 'text-gray-800'
-            }`}>
-              <Sparkles className="h-4 w-4" />
-              <span>Tekoälyalustat</span>
-            </h3>
-            <div className="grid grid-cols-2 gap-2">
-              {platforms.map((platform) => {
-                const isSelected = searchFilters.platform === platform.id;
-                return (
-                  <button
-                    key={platform.id}
-                    onClick={() => {
-                      handlePlatformChange(platform.id);
-                      if (window.innerWidth < 1024) setSidebarOpen(false);
-                    }}
-                    className={`p-3 rounded-xl text-left transition-all duration-200 border ${
-                      isSelected
-                        ? darkMode 
-                          ? 'bg-gradient-to-r from-purple-900/60 to-pink-900/40 text-purple-200 border-purple-700/50 shadow-lg' 
-                          : 'bg-gradient-to-r from-purple-100/60 to-pink-100/40 text-purple-800 border-purple-200/50 shadow-lg'
-                        : darkMode 
-                          ? 'hover:bg-gray-800/60 text-gray-300 hover:text-white border-transparent hover:border-gray-700/50 hover:shadow-md' 
-                          : 'hover:bg-gray-50/80 text-gray-700 hover:text-gray-900 border-transparent hover:border-gray-200/50 hover:shadow-md'
-                    }`}
-                  >
-                    <div className="text-xs font-semibold text-center">
-                      {platform.label}
-                    </div>
-                  </button>
-                );
-              })}
-            </div>
-          </div>
 
-          {/* Sort Options */}
-          <div>
-            <h3 className={`text-sm font-semibold mb-3 flex items-center space-x-2 ${
-              darkMode ? 'text-gray-200' : 'text-gray-800'
-            }`}>
-              <Wrench className="h-4 w-4" />
-              <span>Järjestä</span>
-            </h3>
-            <div className="space-y-2">
-              {sortOptions.map((option) => {
-                const isSelected = searchFilters.sortBy === option.id;
-                return (
-                  <button
-                    key={option.id}
-                    onClick={() => {
-                      handleSortChange(option.id);
-                      if (window.innerWidth < 1024) setSidebarOpen(false);
-                    }}
-                    className={`w-full flex items-center justify-between px-4 py-3 rounded-xl transition-all duration-200 text-left border ${
-                      isSelected
-                        ? darkMode 
-                          ? 'bg-gradient-to-r from-orange-900/60 to-red-900/40 text-orange-200 border-orange-700/50 shadow-lg' 
-                          : 'bg-gradient-to-r from-orange-100/60 to-red-100/40 text-orange-800 border-orange-200/50 shadow-lg'
-                        : darkMode 
-                          ? 'hover:bg-gray-800/60 text-gray-300 hover:text-white border-transparent hover:border-gray-700/50 hover:shadow-md' 
-                          : 'hover:bg-gray-50/80 text-gray-700 hover:text-gray-900 border-transparent hover:border-gray-200/50 hover:shadow-md'
-                    }`}
-                  >
-                    <span className="text-sm font-medium">{option.label}</span>
-                    {isSelected && (
-                      <div className={`w-2 h-2 rounded-full ${
-                        darkMode ? 'bg-orange-400' : 'bg-orange-600'
-                      }`} />
-                    )}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
         </div>
       </aside>
 

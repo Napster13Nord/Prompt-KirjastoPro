@@ -93,55 +93,55 @@ function categorizePrompt(act: string): string {
   
   if (actLower.includes('developer') || actLower.includes('programmer') || 
       actLower.includes('code') || actLower.includes('tech')) {
-    return 'Development';
+    return 'Kehitys';
   } else if (actLower.includes('writer') || actLower.includes('content') || 
              actLower.includes('editor') || actLower.includes('journalist')) {
-    return 'Writing';
+    return 'Kirjoittaminen';
   } else if (actLower.includes('teacher') || actLower.includes('tutor') || 
              actLower.includes('instructor') || actLower.includes('coach')) {
-    return 'Education';
+    return 'Koulutus';
   } else if (actLower.includes('business') || actLower.includes('manager') || 
              actLower.includes('consultant') || actLower.includes('analyst')) {
-    return 'Business';
+    return 'Liiketoiminta';
   } else if (actLower.includes('design') || actLower.includes('artist') || 
              actLower.includes('creative')) {
-    return 'Creative';
+    return 'Luova';
   } else if (actLower.includes('health') || actLower.includes('doctor') || 
              actLower.includes('medical') || actLower.includes('fitness')) {
-    return 'Health';
+    return 'Terveys';
   } else if (actLower.includes('game') || actLower.includes('entertainment')) {
-    return 'Entertainment';
+    return 'Viihde';
   }
   
-  return 'General';
+  return 'Yleinen';
 }
 
 function categorizeVibePrompt(app: string, techstack: string): string {
   const combined = `${app} ${techstack}`.toLowerCase();
   
   if (combined.includes('game') || combined.includes('3d') || combined.includes('three.js')) {
-    return 'Games';
+    return 'Pelit';
   } else if (combined.includes('tool') || combined.includes('calculator') || 
              combined.includes('generator') || combined.includes('converter')) {
-    return 'Tools';
+    return 'Työkalut';
   } else if (combined.includes('dashboard') || combined.includes('chart') || 
              combined.includes('analytics')) {
-    return 'Analytics';
+    return 'Analytiikka';
   } else if (combined.includes('chat') || combined.includes('social') || 
              combined.includes('messaging')) {
-    return 'Communication';
+    return 'Kommunikointia';
   } else if (combined.includes('ecommerce') || combined.includes('shop') || 
              combined.includes('store')) {
-    return 'E-commerce';
+    return 'Verkkokauppa';
   } else if (combined.includes('health') || combined.includes('fitness') || 
              combined.includes('medical')) {
-    return 'Health';
+    return 'Terveys';
   } else if (combined.includes('education') || combined.includes('learning') || 
              combined.includes('quiz')) {
-    return 'Education';
+    return 'Koulutus';
   }
   
-  return 'Web Apps';
+  return 'Web-sovellukset';
 }
 
 function extractTags(act: string, prompt: string): string[] {
@@ -157,9 +157,9 @@ function extractTags(act: string, prompt: string): string[] {
   if (combined.includes('ai') || combined.includes('artificial intelligence')) tags.push('AI');
   
   // Role-based tags
-  if (combined.includes('beginner')) tags.push('Beginner');
-  if (combined.includes('advanced')) tags.push('Advanced');
-  if (combined.includes('professional')) tags.push('Professional');
+  if (combined.includes('beginner')) tags.push('Aloittelija');
+  if (combined.includes('advanced')) tags.push('Edistynyt');
+  if (combined.includes('professional')) tags.push('Ammattilainen');
   
   return tags;
 }
