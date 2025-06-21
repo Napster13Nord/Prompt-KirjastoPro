@@ -39,12 +39,14 @@ export default function WelcomePage({ darkMode, onAuthSuccess }: WelcomePageProp
       </p>
       
       {/* Badge */}
-      <div className={`inline-flex items-center space-x-2 px-4 py-2 rounded-full text-sm font-medium mb-8 ${
-        darkMode 
-          ? 'bg-blue-900/30 text-blue-400 border border-blue-700' 
-          : 'bg-blue-100 text-blue-600 border border-blue-200'
-      }`}>
-        <span>🌟 Eksklusiivinen pääsy kurssin opiskelijoille</span>
+      <div className="flex justify-center w-full mb-8">
+        <div className={`inline-flex items-center space-x-2 px-4 py-2 rounded-full text-sm font-medium ${
+          darkMode 
+            ? 'bg-blue-900/30 text-blue-400 border border-blue-700' 
+            : 'bg-blue-100 text-blue-600 border border-blue-200'
+        }`}>
+          <span>🌟 Eksklusiivinen pääsy kurssin opiskelijoille</span>
+        </div>
       </div>
       
       {/* CTA Button */}
