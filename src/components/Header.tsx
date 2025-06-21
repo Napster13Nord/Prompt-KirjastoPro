@@ -55,7 +55,7 @@ export default function Header() {
   };
 
   return (
-    <header className={`sticky top-0 z-50 border-b transition-colors ${
+    <header className={`sticky top-0 z-30 lg:z-50 border-b transition-colors ${
       darkMode 
         ? 'bg-gray-900/95 border-gray-800 backdrop-blur-md' 
         : 'bg-white/95 border-gray-200 backdrop-blur-md'
