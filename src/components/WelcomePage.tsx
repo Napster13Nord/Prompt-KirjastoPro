@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import { Sparkles, BookOpen, Zap, Target, Shield, Star, ArrowRight } from 'lucide-react';
 import AuthModal from './AuthModal';
-import Image from 'next/image';
 
 interface WelcomePageProps {
   darkMode: boolean;
@@ -17,19 +16,15 @@ export default function WelcomePage({ darkMode, onAuthSuccess }: WelcomePageProp
     <div className={`min-h-screen flex flex-col items-center justify-center px-4 pt-20 ${
       darkMode ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'
     }`}>
-      {/* Logo */}
-      <div className="flex items-center justify-center mb-8">
-        <Image
-          src="/logo.png"
-          alt="Prompt-Kirjasto Pro Logo"
-          width={400}
-          height={400}
-          className="h-32 w-32 lg:h-40 lg:w-40 object-contain"
-        />
+      {/* Title */}
+      <div className="flex items-center justify-center mb-16">
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 font-sans text-center leading-tight">
+          Prompt-Kirjasto Pro
+        </h1>
       </div>
       
       {/* Main Description */}
-      <p className={`text-2xl lg:text-3xl font-bold mb-6 max-w-3xl mx-auto text-center ${
+      <p className={`text-2xl lg:text-3xl font-bold mb-8 max-w-3xl mx-auto text-center ${
         darkMode ? 'text-white' : 'text-gray-900'
       }`}>
         Kattavin prompt-kirjasto <span className="text-blue-600">tekoälyn hallintaan</span>

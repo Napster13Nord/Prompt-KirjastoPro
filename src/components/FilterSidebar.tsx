@@ -118,7 +118,7 @@ export default function FilterSidebar() {
       <aside className={`
         fixed lg:relative lg:translate-x-0 
         ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}
-        w-80 h-screen lg:h-full overflow-hidden border-r z-50 
+        w-80 h-screen lg:h-full overflow-hidden border-r z-40 
         transition-all duration-300 ease-out flex flex-col
         top-0 left-0
         ${darkMode 

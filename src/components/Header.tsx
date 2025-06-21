@@ -9,7 +9,6 @@ import toast from 'react-hot-toast';
 import FavoritesModal from './FavoritesModal';
 import PromptModal from './PromptModal';
 import { Prompt, VibePrompt } from '@/types';
-import Image from 'next/image';
 
 export default function Header() {
   const { 
@@ -56,16 +55,16 @@ export default function Header() {
   };
 
   return (
-    <header className={`sticky top-0 z-40 border-b transition-colors ${
+    <header className={`sticky top-0 z-50 border-b transition-colors ${
       darkMode 
         ? 'bg-gray-900/95 border-gray-800 backdrop-blur-md' 
         : 'bg-white/95 border-gray-200 backdrop-blur-md'
     }`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:pl-0 lg:pr-8">
         <div className="flex items-center justify-between h-16">
           {/* Left Side - Logo + Mobile Menu */}
-          <div className="flex items-center space-x-4">
-            {/* Mobile Menu Button */}
+          <div className="flex items-center space-x-4 lg:space-x-0">
+            {/* Mobile Menu Button - Only visible on mobile */}
             <button
               onClick={() => setSidebarOpen(!sidebarOpen)}
               className={`lg:hidden p-2 rounded-lg transition-colors ${
@@ -79,14 +78,13 @@ export default function Header() {
             </button>
 
             {/* Logo */}
-            <div className="flex items-center">
-              <Image
-                src="/logo.png"
-                alt="Prompt-Kirjasto Pro Logo"
-                width={200}
-                height={200}
-                className="h-[46px] w-[46px] lg:h-14 lg:w-14 object-contain"
-              />
+            <div className="flex items-center lg:pl-6">
+              <h1 className={`text-xl lg:text-2xl font-bold font-sans ${
+                darkMode ? 'text-white' : 'text-gray-900'
+              }`}>
+                <span className="hidden lg:inline">Prompt-Kirjasto Pro</span>
+                <span className="lg:hidden">PK Pro</span>
+              </h1>
             </div>
           </div>
 
